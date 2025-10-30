@@ -6,12 +6,13 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       python manage.py makemigrations membres --noinput
-           python manage.py migrate --noinput
+      python manage.py migrate --noinput
       python manage.py collectstatic --noinput
     startCommand: gunicorn reseau_entrepreneurs.wsgi
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: reseau_entrepreneurs.settings
+
 
 
 
