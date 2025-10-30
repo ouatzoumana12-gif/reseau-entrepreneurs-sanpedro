@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription | Réseau des Entrepreneurs</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; background: #f1f5f9; }
+      .container { max-width: 480px; margin: 50px auto; background: #fff; padding: 40px 30px; border-radius: 9px; box-shadow: 0 3px 18px #0002; text-align: center; }
+      h1 { color: #2563eb; }
+      form { margin-top: 30px; }
+      input, select { width: 90%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 6px; font-size: 1em; }
+      button { width: 95%; padding: 14px; color: #fff; background: #2563eb; border: none; font-size: 1.15em; border-radius: 7px; cursor: pointer; margin-top: 12px; }
+      button:hover { background: #1d4ed8; }
+      .retour { display: inline-block; margin-bottom: 18px; color: #2563eb; text-decoration: none; }
+      .message { color: #c50; background: #ffe5bc; padding: 8px 5px; border-radius: 6px; margin-bottom: 16px; }
+    </style>
+</head>
+<body>
+<div class="container">
+  <a href="/" class="retour">&larr; Retour à l'accueil</a>
+  <h1>Inscription entrepreneur</h1>
+  {% if message %}
+    <div class="message">{{ message }}</div>
+  {% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <input name="nom" placeholder="Nom complet" required>
+    <input name="entreprise" placeholder="Nom de l'entreprise" required>
+    <input name="secteur" placeholder="Secteur d'activité" required>
+    <input name="email" placeholder="Adresse email" type="email" required>
+    <button type="submit">S'inscrire</button>
+  </form>
+</div>
+</body>
+</html>
